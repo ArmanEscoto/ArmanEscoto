@@ -53,6 +53,7 @@ Partial Class Form1
         '
         'TextBox1
         '
+        Me.TextBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TextBox1.Location = New System.Drawing.Point(129, 31)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(610, 20)
@@ -80,6 +81,7 @@ Partial Class Form1
         '
         'TextBox2
         '
+        Me.TextBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TextBox2.Location = New System.Drawing.Point(54, 107)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(215, 20)
@@ -87,6 +89,7 @@ Partial Class Form1
         '
         'TextBox3
         '
+        Me.TextBox3.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TextBox3.Location = New System.Drawing.Point(293, 107)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(207, 20)
@@ -104,6 +107,7 @@ Partial Class Form1
         '
         'TextBox4
         '
+        Me.TextBox4.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TextBox4.Location = New System.Drawing.Point(524, 107)
         Me.TextBox4.Name = "TextBox4"
         Me.TextBox4.Size = New System.Drawing.Size(215, 20)
@@ -121,6 +125,7 @@ Partial Class Form1
         '
         'TextBox5
         '
+        Me.TextBox5.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TextBox5.Location = New System.Drawing.Point(54, 161)
         Me.TextBox5.Name = "TextBox5"
         Me.TextBox5.Size = New System.Drawing.Size(685, 20)
@@ -158,6 +163,7 @@ Partial Class Form1
         '
         'TextBox7
         '
+        Me.TextBox7.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TextBox7.Location = New System.Drawing.Point(293, 226)
         Me.TextBox7.Name = "TextBox7"
         Me.TextBox7.Size = New System.Drawing.Size(207, 20)
@@ -165,6 +171,7 @@ Partial Class Form1
         '
         'ComboBox1
         '
+        Me.ComboBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"BSIT", "BSTM", "BSCRIM", "BSBA"})
         Me.ComboBox1.Location = New System.Drawing.Point(524, 225)
@@ -174,6 +181,7 @@ Partial Class Form1
         '
         'Listview1
         '
+        Me.Listview1.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Listview1.HideSelection = False
         Me.Listview1.Location = New System.Drawing.Point(51, 262)
         Me.Listview1.Name = "Listview1"
@@ -183,6 +191,7 @@ Partial Class Form1
         '
         'ComboBox2
         '
+        Me.ComboBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ComboBox2.FormattingEnabled = True
         Me.ComboBox2.Items.AddRange(New Object() {"Male", "Female"})
         Me.ComboBox2.Location = New System.Drawing.Point(57, 226)
