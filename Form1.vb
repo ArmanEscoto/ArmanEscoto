@@ -70,16 +70,33 @@ Public Class Form1
     End Sub
 
     Private Sub btnAddnewStud_Click(sender As Object, e As EventArgs) Handles btnAddnewStud.Click
-        If MsgBox("Are you sure to save this record?", (vbYesNo + vbQuestion)) Then
-            openCon()
-            sql = "INSERT INTO tblstudinfo (studno, studlastname, studfirstname, studmiddle, studaddress, studgender, studconatct, studcourse) VALUES (" & Me.txtSID.Text & ", '" & (Me.txtlastname.Text) & "', '" & (Me.txtfirstname.Text) & "', '" & (Me.txtmiddle.Text) & "', '" & (Me.txtaddress.Text) & "', '" & (Me.cmbgender.Text) & "', '" & (Me.txtcontact.Text) & "', '" & (Me.cmbcourse.Text) & "')"
-            cmd = New NpgsqlCommand(sql, cn)
-            cmd.ExecuteNonQuery()
-            cn.Close()
+        ''If MsgBox("Are you sure to save this record?", (vbYesNo + vbQuestion)) = DialogResult.Yes Then
+        ''    openCon()
+        ''    sql = "INSERT INTO tblstudinfo (studno, studlastname, studfirstname, studmiddle, studaddress, studgender, studconatct, studcourse) VALUES (" & Me.txtSID.Text & ", '" & (Me.txtlastname.Text) & "', '" & (Me.txtfirstname.Text) & "', '" & (Me.txtmiddle.Text) & "', '" & (Me.txtaddress.Text) & "', '" & (Me.cmbgender.Text) & "', '" & (Me.txtcontact.Text) & "', '" & (Me.cmbcourse.Text) & "')"
+        ''    cmd = New NpgsqlCommand(sql, cn)
+        ''    cmd.ExecuteNonQuery()
+        ''    cn.Close()
+        ''    ClearAllTextbox()
 
+        ''End If
+
+        'PoplistView()
+        If Not (txtSID.Text.Length = 0 Or txtaddress.TextLength = 0 Or txtfirstname.TextLength = 0 Or txtmiddle.TextLength = 0 Or txtlastname.TextLength = 0 Or txtcontact.TextLength = 0 Or cmbcourse.Text.Length = 0 Or cmbgender.Text.Length = 0) Then
+            If MsgBox("Are you sure to save this record?", (vbYesNo + vbQuestion)) = DialogResult.Yes Then
+                openCon()
+                sql = "INSERT INTO tblstudinfo (studno, studlastname, studfirstname, studmiddle, studaddress, studgender, studconatct, studcourse) VALUES (" & Me.txtSID.Text & ", '" & (Me.txtlastname.Text) & "', '" & (Me.txtfirstname.Text) & "', '" & (Me.txtmiddle.Text) & "', '" & (Me.txtaddress.Text) & "', '" & (Me.cmbgender.Text) & "', '" & (Me.txtcontact.Text) & "', '" & (Me.cmbcourse.Text) & "')"
+                cmd = New NpgsqlCommand(sql, cn)
+                cmd.ExecuteNonQuery()
+                cn.Close()
+                ClearAllTextbox()
+
+            End If
+
+
+            PoplistView()
+        Else
+            MsgBox("Please Fill Up! WAG NA MAKULET!!!", vbOKOnly)
         End If
-
-        PoplistView()
     End Sub
 
     Private Sub Listview1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles Listview1.SelectedIndexChanged
@@ -120,20 +137,57 @@ Public Class Form1
     End Sub
 
     Private Sub btnUpdateStud_Click(sender As Object, e As EventArgs) Handles btnUpdateStud.Click
-        If MsgBox("Are you sure to Update this?", (vbYesNo + vbExclamation)) Then
-            Dim query As String = "UPDATE tblstudinfo SET studlastname = '" & (Me.txtlastname.Text) & "', studfirstname = '" & (Me.txtfirstname.Text) & "', studmiddle = '" & (Me.txtmiddle.Text) & "', studaddress = '" & (Me.txtaddress.Text) & "', studgender =  '" & (Me.cmbgender.Text) & "', studconatct = '" & (Me.txtcontact.Text) & "', studcourse = '" & (Me.cmbcourse.Text) & "' WHERE studno = '" & (Me.txtSID.Text) & "' "
-            ExecutedNoQuery(query)
-            PoplistView()
-            ClearAllTextbox()
+        'If MsgBox("Are you sure to Update this?", (vbYesNo + vbExclamation)) = DialogResult.Yes Then
+        '    Dim query As String = "UPDATE tblstudinfo SET studlastname = '" & (Me.txtlastname.Text) & "', studfirstname = '" & (Me.txtfirstname.Text) & "', studmiddle = '" & (Me.txtmiddle.Text) & "', studaddress = '" & (Me.txtaddress.Text) & "', studgender =  '" & (Me.cmbgender.Text) & "', studconatct = '" & (Me.txtcontact.Text) & "', studcourse = '" & (Me.cmbcourse.Text) & "' WHERE studno = '" & (Me.txtSID.Text) & "' "
+        '    ExecutedNoQuery(query)
+        '    PoplistView()
+        '    ClearAllTextbox()
+        'End If
+
+        If Not (txtSID.Text.Length = 0 Or txtaddress.TextLength = 0 Or txtfirstname.TextLength = 0 Or txtmiddle.TextLength = 0 Or txtlastname.TextLength = 0 Or txtcontact.TextLength = 0 Or cmbcourse.Text.Length = 0 Or cmbgender.Text.Length = 0) Then
+            If MsgBox("Are you sure to Update this?", (vbYesNo + vbExclamation)) = DialogResult.Yes Then
+                Dim query As String = "UPDATE tblstudinfo SET studlastname = '" & (Me.txtlastname.Text) & "', studfirstname = '" & (Me.txtfirstname.Text) & "', studmiddle = '" & (Me.txtmiddle.Text) & "', studaddress = '" & (Me.txtaddress.Text) & "', studgender =  '" & (Me.cmbgender.Text) & "', studconatct = '" & (Me.txtcontact.Text) & "', studcourse = '" & (Me.cmbcourse.Text) & "' WHERE studno = '" & (Me.txtSID.Text) & "' "
+                ExecutedNoQuery(query)
+                PoplistView()
+                ClearAllTextbox()
+            End If
+
+        Else
+            MsgBox("Please Select You Wan't To Update!", vbOKOnly)
+
         End If
+        'If Listview1.SelectedItems.Count > 0 Then
+        '    If MsgBox("Are you sure to Update this?", (vbYesNo + vbExclamation)) = DialogResult.Yes Then
+        '        Dim query As String = "UPDATE tblstudinfo SET studlastname = '" & (Me.txtlastname.Text) & "', studfirstname = '" & (Me.txtfirstname.Text) & "', studmiddle = '" & (Me.txtmiddle.Text) & "', studaddress = '" & (Me.txtaddress.Text) & "', studgender =  '" & (Me.cmbgender.Text) & "', studconatct = '" & (Me.txtcontact.Text) & "', studcourse = '" & (Me.cmbcourse.Text) & "' WHERE studno = '" & (Me.txtSID.Text) & "' "
+        '        ExecutedNoQuery(query)
+        '        PoplistView()
+        '        ClearAllTextbox()
+        '    End If
+        'Else
+        '    MsgBox("Please Select You Wan't To Update!", vbOKOnly)
+
+        'End If
     End Sub
 
     Private Sub btnDeleteStud_Click(sender As Object, e As EventArgs) Handles btnDeleteStud.Click
-        If MsgBox("Are you sure to Delete this?", (vbYesNo + vbExclamation)) Then
-            Dim query As String = "DELETE FROM tblstudinfo WHERE studno = ' " & (txtSID.Text) & " ' "
-            ExecutedNoQuery(query)
-            PoplistView()
-            ClearAllTextbox()
+        'If MsgBox("Are you sure to Delete this?", (vbYesNo + vbExclamation)) = DialogResult.Yes Then
+        '    Dim query As String = "DELETE FROM tblstudinfo WHERE studno = ' " & (txtSID.Text) & " ' "
+        '    ExecutedNoQuery(query)
+        '    PoplistView()
+        '    ClearAllTextbox()
+        'End If
+
+        If Listview1.SelectedItems.Count > 0 Then
+            If MsgBox("Are you sure to Delete this?", (vbYesNo + vbExclamation)) = DialogResult.Yes Then
+                Dim query As String = "DELETE FROM tblstudinfo WHERE studno = ' " & (txtSID.Text) & " ' "
+                ExecutedNoQuery(query)
+                PoplistView()
+                ClearAllTextbox()
+            End If
+        Else
+            MsgBox("Please Select You Wan't To Delete!", vbOKOnly)
+
+
         End If
     End Sub
 End Class
